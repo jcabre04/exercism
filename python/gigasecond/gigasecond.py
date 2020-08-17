@@ -1,0 +1,12 @@
+import datetime
+
+SECONDS_IN_DAY = 86400
+GIGASECOND_SECONDS = 10 ** 9
+
+DAYS = GIGASECOND_SECONDS // SECONDS_IN_DAY
+SECONDS = GIGASECOND_SECONDS - (DAYS * SECONDS_IN_DAY)
+
+GIGASECOND = datetime.timedelta(days=DAYS, seconds=SECONDS)
+
+def add(moment):
+	return moment + GIGASECOND
