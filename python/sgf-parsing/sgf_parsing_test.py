@@ -57,7 +57,9 @@ class SgfParsingTest(unittest.TestCase):
 
     def test_two_nodes(self):
         input_string = "(;A[B];B[C])"
-        expected = SgfTree(properties={"A": ["B"]}, children=[SgfTree({"B": ["C"]})])
+        expected = SgfTree(
+            properties={"A": ["B"]}, 
+            children=[SgfTree({"B": ["C"]})])
         self.assertEqual(parse(input_string), expected)
 
     def test_two_child_trees(self):
@@ -73,9 +75,10 @@ class SgfParsingTest(unittest.TestCase):
         expected = SgfTree(properties={"A": ["b", "c", "d"]})
         self.assertEqual(parse(input_string), expected)
 
+    #Between the \\ ... \\ are literal characters
     def test_escaped_property(self):
         input_string = "(;A[\\]b\nc\nd\t\te \n\\]])"
-        expected = SgfTree(properties={"A": ["]b\nc\nd  e \n]"]})
+        expected = SgfTree(properties={"A": ["]b\nc\nd\t\te \n]"]})
         self.assertEqual(parse(input_string), expected)
 
     # Utility functions
