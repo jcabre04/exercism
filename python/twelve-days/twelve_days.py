@@ -27,18 +27,15 @@ days = ["first",
 starting_line = "On the {day} day of Christmas my true love gave to me:"
 
 def recite(start_verse, end_verse):
-	lines = []
+	song = []
 	for verse in range(start_verse - 1, end_verse):
 		if verse == 0:
-			lines.append(starting_line.format(day=days[verse]) + " " + verses[verse])
+			song.append(starting_line.format(day=days[verse]) + " " + verses[verse])
 		else:
 			line = starting_line.format(day=days[verse])
-			while verse >= 0:
-				if verse == 0:
-					line += " and " + verses[verse]
-					verse -= 1
-				else:
-					line += " " + verses[verse] + ","
-					verse -= 1
-			lines.append(line)
-	return lines
+			while verse:
+				line += " " + verses[verse] + ","
+				verse -= 1
+			song.append(line + " and " + verses[verse])
+
+	return song
