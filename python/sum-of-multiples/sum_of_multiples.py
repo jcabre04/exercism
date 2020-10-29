@@ -19,7 +19,4 @@ def sum_of_multiples(limit, multiples):
 		if multiple and num >= multiple and num % multiple == 0]
 	'''
 
-	return sum(set_of_multiples) 
-	
-	
-print(sum_of_multiples(10, [7, 5]))
+	return sum(set_of_multiples)
