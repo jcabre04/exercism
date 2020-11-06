@@ -4,7 +4,6 @@ PUNCTUATION = ",!?:&@$%^_."
 REPLACEMENT = "           "
 
 def clean_apostrophe(word):
-	#is_contraction = re.match(r"\'*(\w+'\w+)\'*", word)	
 	is_contraction = re.match(r"(\w+'\w+)", word)	
 	if is_contraction:
 		return is_contraction.groups()[0]
@@ -21,7 +20,3 @@ def count_words(sentence):
 		else:
 			count[word] = 1
 	return count
-	
-if __name__ == "__main__":
-	print(count_words(",\n,one,\n ,two \n 'three' you're 'hello hi' 'yesn'nt'"))
-	#print(count_words("'yesn'nt'"))	
