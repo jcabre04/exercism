@@ -1,6 +1,6 @@
 # Given a prime, mark the multiples in the given list with False
 # Assumes that the list begins at position 0 and is in order
-def setMultiplesTrue(prime, list):
+def setMultiplesFalse(prime, list):
 	multiple = prime + prime
 	while multiple < len(list):
 		list[multiple] = (multiple, False)
@@ -15,7 +15,7 @@ def primes(limit):
 
 	for tuple in numbers:
 		if tuple[0] >= 2 and tuple[1] == True:
-			setMultiplesTrue(tuple[0], numbers)
+			setMultiplesFalse(tuple[0], numbers)
 
 	return [num[0] for num in numbers if num[1] == True][2:]
 
